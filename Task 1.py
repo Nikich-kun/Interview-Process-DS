@@ -13,9 +13,6 @@
 
 # Read file and import defaultdict function
 
-# In[1]:
-
-
 from collections import defaultdict
 
 df = open('keylog.txt').readlines() # read file but need \n remove
@@ -23,9 +20,6 @@ keylog = [line.strip() for line in df] # list with separate values
 
 
 # A defaultdict works exactly like a normal dict, but it is initialized with a function (“default factory”) that takes no arguments and provides the default value for a nonexistent key.
-
-# In[2]:
-
 
 df_dict = defaultdict(list)
 for i in keylog:
@@ -37,9 +31,6 @@ for i in keylog:
 # 
 # result can see next block
 
-# In[3]:
-
-
 dict_it = list(df_dict.items())
 #show result
 for k,v in dict_it:
@@ -48,9 +39,6 @@ for k,v in dict_it:
 
 # So next will be the last step calculate average value for every unique element and all that remains is sort average value descending
 
-# In[4]:
-
-
 avr_positions = {}
 for k,v in dict_it:
     avr_positions[k] = float(sum(v))/float(len(v))
@@ -58,16 +46,10 @@ for k,v in dict_it:
 
 # So there can see that 7 will be first (wich 0.0 average value), next 3 (0.14) and last will be 0 because have maximal value
 
-# In[5]:
-
-
 avr_positions
 
 
 # Let's sort
-
-# In[6]:
-
 
 sort_it = sorted(list(avr_positions.items()), key=lambda x: x[1])
 a = [i for i,j in sort_it]

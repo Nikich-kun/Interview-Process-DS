@@ -14,9 +14,6 @@
 # 
 # For this formula I use function binom from scipy
 
-# In[1]:
-
-
 from scipy.special import binom
 
 color = 7 # number of each unique color
@@ -31,26 +28,17 @@ picked = 20 # number of randomly picked balls
 # 
 # the probability that 20 out of 70 are actually taken from a set of only 60 balls will be pr_b
 
-# In[2]:
-
-
 pr_a = binom(cl_balls, picked)
 pr_b = binom(cl_balls - num_balls_cl, picked)
 
 
 # the probability that this color was picked and opposite
 
-# In[3]:
-
-
 pr = (pr_b/pr_a)
 probability = 1 - pr
 
 
 # Now probability for 7 colors
-
-# In[4]:
-
 
 result = 7 * probability
 print('Answer =', result)
